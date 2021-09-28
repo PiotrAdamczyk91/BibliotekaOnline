@@ -1,0 +1,43 @@
+﻿@model IEnumerable<BibliotekaOnline.Models.Rezerwacja>
+
+@{
+    ViewData["Title"] = "ListaRezerwacji";
+}
+
+<h1>ListaRezerwacji</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DataRezerwacji)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ksiazka)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataRezerwacji)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ksiazka.Nazwa)
+                    @ViewBag.NazwaKsiazki
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a asp-action="Index">Powróć na listę książek</a> |

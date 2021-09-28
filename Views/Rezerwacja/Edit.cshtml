@@ -1,0 +1,44 @@
+﻿@model BibliotekaOnline.Models.Rezerwacja
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edycja</h1>
+
+<h4>Rezerwacji</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="RezerwacjaID" />
+            <div class="form-group">
+                <label asp-for="DataRezerwacji" class="control-label"></label>
+                <input asp-for="DataRezerwacji" class="form-control" />
+                <span asp-validation-for="DataRezerwacji" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserID" class="control-label"></label>
+                <input asp-for="UserID" class="form-control" />
+                <span asp-validation-for="UserID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="KsiazkaID" class="control-label"></label>
+                <select asp-for="KsiazkaID" class="form-control" asp-items="ViewBag.KsiazkaID"></select>
+                <span asp-validation-for="KsiazkaID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Zapisz" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Powróć na listę rezerwacji</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

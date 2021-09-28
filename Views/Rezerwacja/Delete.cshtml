@@ -1,0 +1,40 @@
+﻿@model BibliotekaOnline.Models.Rezerwacja
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Usunięcie</h1>
+
+<h4>Rezerwacji</h4>
+<div>
+    
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DataRezerwacji)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DataRezerwacji)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.UserID)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.UserID)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Ksiazka)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Ksiazka.Nazwa)
+        </dd class>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="RezerwacjaID" />
+        <input type="submit" value="Usuń rezerwację" class="btn btn-danger" />
+        <br /><br />
+        <a asp-action="Index">Powróć na listę rezerwacji</a>
+    </form>
+</div>
